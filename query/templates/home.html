@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block title %}
+    Home Page
+{% endblock %}
+{% block content %}
+<!--input type=text id=doc_type name=combobox_type -->
+<form method=post action="query">
+    <div class=center>
+        <label for=doc_opt>Tipo de Documento: </label>
+        <select name=doc_typ>
+            {% for item in type_map %}
+                <option value='{{item}}'>{{item}}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class=center>
+        <label for=doc_num>Número de Documento: </label>
+        <input name=doc_num type="text" id=doc_num placeholder="Ej. 72779608" pattern="[0-9]{8,20}" title="Ingrese una cadena de números entre 8 y 20 caracteres.">
+    </div>
+    <div class=center>
+        <label for="start">Start date:</label>
+
+        <input type="date" id="start" name="trip-start"
+           value="2021-10-31"
+           min="1900-01-01" max="2050-12-31">
+    </div>
+    <div class=center>
+        <input class=button type=submit value='Enviar Datos'>
+    </div>   
+    <div class=center>
+        <p>{{msg}}
+    </div> 
+</form>
+{% endblock %}
