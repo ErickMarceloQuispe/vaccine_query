@@ -26,11 +26,6 @@
     </div>
     <div class=center>
         {{form.captcha()}}
-        {%for error in form.captcha.errors%}
-        <p>
-            {{error}}
-        </p>
-        {%endfor%}
     </div>  
     <div class=center>
         <input class=button type=submit value='Enviar Datos'>
